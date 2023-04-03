@@ -13,12 +13,19 @@ ProductTag.init(
       autoIncrement:true,
     },
 
-    category_id:{
+    product_id:{
 
-      type:DataTypes.STRING,
-      allowNull:false,
+      type:DataTypes.INTEGER,
+      references:product_id,
   
+    },
+
+    tag_id:{
+       
+      type:DataTypes.INTEGER,
+      references:tag_id
     }
+
   },
   {
     sequelize,
