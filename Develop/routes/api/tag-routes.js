@@ -47,18 +47,18 @@ router.post('/', (req, res) => {
     })
       .then((tag) => {
 
-        if (req.body.productIds.length) {
-          const tagIdArr = req.body.productIds.map((product_id) => {
-            return {
-              tag_id: tag.id,
-              product_id: product_id,
-            };
-          });
-          return ProductTag.bulkCreate(tagIdArr);
+        // if (req.body.productIds.length) {
+        //   const tagIdArr = req.body.productIds.map((product_id) => {
+        //     return {
+        //       tag_id: tag.id,
+        //       product_id: product_id,
+        //     };
+        //   });
+        res.status(200).json(tag);
+          // return ProductTag.bulkCreate(tagIdArr);
         }
         // if no  tags, just respond
-        res.status(200).json(tag);
-      })
+      )
       .then((TagIds) => res.status(200).json(TagIds))
       .catch((err) => {
         console.log(err);
